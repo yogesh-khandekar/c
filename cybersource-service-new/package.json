@@ -11,11 +11,11 @@
     "clean": "rimraf --glob build:*",
     "format": "npx prettier --write .",
     "tsc": "tsc",
-    "start": "yarn run build && node build/main/index.js",
-    "deploy": "yarn run build && serverless deploy",
+    "start": "npm run build && node build/main/index.js",
+    "deploy": "npm run build && serverless deploy",
     "build": "rimraf ./build && tsc",
-    "setup-resources": "yarn run build && run-func ./build/main/setup.js setupExtensionResources",
-    "create-subscription": "yarn run build && run-func ./build/main/setup.js createWebhookSubscription",
+    "setup-resources": "npm run build && run-func ./build/main/setup.js setupExtensionResources",
+    "create-subscription": "npm run build && run-func ./build/main/setup.js createWebhookSubscription",
     "build:main": "tsc -p tsconfig.json",
     "build:module": "tsc -p tsconfig.module.json",
     "test": "run-s build test:*",
@@ -24,7 +24,7 @@
     "cov": "run-s build test:unit cov:html cov:lcov && open-cli coverage/index.html",
     "cov:html": "nyc report --reporter=html",
     "cov:lcov": "nyc report --reporter=lcov",
-    "zip-function": "yarn run build && run-func ./build/main/zipFile.js setupZipFile"
+    "zip-function": "npm run build && run-func ./build/main/zipFile.js setupZipFile"
   },
   "engines": {
     "node": ">=10"
